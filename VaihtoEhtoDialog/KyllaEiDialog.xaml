@@ -1,0 +1,19 @@
+﻿<Window x:Class="VaihtoEhtoDialog.KyllaEiDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             Title="Tililaskuri"
+             mc:Ignorable="d"              
+             Height="200" Width="220">
+    <DockPanel LastChildFill="True">
+        <Grid DockPanel.Dock="Bottom">
+            <Button Name="BtnOK" Click="BtnOK_Click"  HorizontalAlignment="Right" Width="70" Margin="0,10,100,10" Grid.Row="5" Content="OK"></Button>
+            <Button Name="BtnPeruuta" Click="BtnPeruuta_Click" HorizontalAlignment="Right" Width="70" Margin="0,10,20,10" Grid.Row="5" Content="Peruuta"></Button>
+        </Grid>
+        <Grid Width="140" DockPanel.Dock="Top">
+            <TextBlock FontSize="14" Text="Haluatko varmasti poistaa valitut tilitapahtumat ?" TextAlignment="Center" TextWrapping="Wrap" Name="TextBlockTeksti" VerticalAlignment="Center" HorizontalAlignment="Center" />            
+        </Grid>
+
+    </DockPanel>
+</Window>

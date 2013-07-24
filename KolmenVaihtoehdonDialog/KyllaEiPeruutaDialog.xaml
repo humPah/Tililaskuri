@@ -1,0 +1,21 @@
+﻿<Window x:Class="KolmenVaihtoehdonDialog.KyllaEiPeruutaDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:properties="clr-namespace:KolmenVaihtoehdonDialog.Properties"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             Title="Tililaskuri"
+             mc:Ignorable="d"            
+             Height="200" Width="260">
+         <DockPanel LastChildFill="True">
+        <Grid DockPanel.Dock="Bottom">
+            <Button Name="BtnKylla" Click="BtnKylla_Click"  HorizontalAlignment="Left" Width="70" Margin="5,10,0,10" Content="Kyllä"></Button>
+            <Button Name="BtnEi" Click="BtnEi_Click"  HorizontalAlignment="Center" Width="70" Margin="0,10,0,10" Content="Ei"></Button>
+            <Button Name="BtnPeruuta" Click="BtnPeruuta_Click" HorizontalAlignment="Right" Width="70" Margin="0,10,5,10" Content="Peruuta"></Button>
+        </Grid>
+        <Grid Width="Auto" DockPanel.Dock="Top">
+            <TextBlock FontSize="14" Text="Tallennetaanko tehdyt muutokset ennen sulkemista" TextAlignment="Center" TextWrapping="Wrap" Name="TextBlockTeksti" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="1,32,0,32" Width="Auto" />
+        </Grid>
+
+    </DockPanel>
+</Window>

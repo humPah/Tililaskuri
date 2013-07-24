@@ -1,0 +1,72 @@
+﻿<Window x:Class="MaksujenParseri.MaksuParseri"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Tililaskuri" Height="350" Width="525">
+    <!--DockPanel elementeille-->
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="MouseEnter" SourceName="BtnOK">
+            <BeginStoryboard Name="BtnOKSB">
+                <Storyboard>
+                    <DoubleAnimation
+                               Storyboard.TargetName="BtnOK" 
+                               Storyboard.TargetProperty="(Button.Opacity)"
+                               From="1.0" To="0.5" Duration="0:0:1" RepeatBehavior="Forever" AutoReverse="True"  />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="MouseLeave" SourceName="BtnOK">
+            <StopStoryboard BeginStoryboardName="BtnOKSB" />
+        </EventTrigger>
+
+        <EventTrigger RoutedEvent="MouseEnter" SourceName="BtnPeruuta">
+            <BeginStoryboard Name="BtnPeruutaSB">
+                <Storyboard>
+                    <DoubleAnimation
+                               Storyboard.TargetName="BtnPeruuta" 
+                               Storyboard.TargetProperty="(Button.Opacity)"
+                               From="1.0" To="0.5" Duration="0:0:1" RepeatBehavior="Forever" AutoReverse="True"  />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="MouseLeave" SourceName="BtnPeruuta">
+            <StopStoryboard BeginStoryboardName="BtnPeruutaSB" />
+        </EventTrigger>
+
+        <EventTrigger RoutedEvent="MouseEnter" SourceName="LabelMaksu">
+            <BeginStoryboard Name="LabelMaksuSB">
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="LabelMaksu" 
+                     Storyboard.TargetProperty="(Label.RenderTransform).(RotateTransform.Angle)" 
+                     From="-10" To="10" Duration="0:0:5" FillBehavior="Stop" AutoReverse="True"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
+    
+    <DockPanel LastChildFill="True">
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Name="MenuMuokkaa" Header="_Muokkaa">
+                <MenuItem Name="MenuItemLeikkaa" Header="_Leikkaa" Command="ApplicationCommands.Cut" />
+                <MenuItem Name="MenuItemKopioi" Header="_Kopioi" Command="ApplicationCommands.Copy" />
+                <MenuItem Name="MenuItemLiita" Header="_Liitä" Command="ApplicationCommands.Paste"/>
+            </MenuItem>
+        </Menu>
+        <!--Ylhäälle luotu simppeli label-->
+        <Grid DockPanel.Dock="Top">
+            <Label Name="LabelMaksu" FontSize="22" FontFamily="Calibri" HorizontalAlignment="Center" Content="Kopioi teksti kenttään">
+                <Label.RenderTransform>
+                    <RotateTransform Angle="0" CenterX="95" CenterY="20" />
+                </Label.RenderTransform>
+            </Label>
+        </Grid>
+        <Grid DockPanel.Dock="Bottom">
+            <!--Buttonit, joista OK sulkee dialogin palauttaen DialogResultin Truena ja Peruuta, joka palauttaa DialogResultin Falsena-->
+            <Button Name="BtnOK" Click="BtnOK_Click"  HorizontalAlignment="Right" Width="70" Margin="0,10,100,10" Content="OK"></Button>
+            <Button Name="BtnPeruuta" Click="BtnPeruuta_Click" HorizontalAlignment="Right" Width="70" Margin="0,10,20,10" Content="Peruuta"></Button>        
+        </Grid>
+        <Grid>          
+            <TextBox Background="White" AcceptsReturn="True" Margin="2,5,5,2" Name="TextBoxSyote" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"></TextBox>
+            
+        </Grid>
+    </DockPanel>
+</Window>
